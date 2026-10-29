@@ -10,9 +10,27 @@ import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/700.css";
 import "./globals.css";
 
+const siteTitle = "Taiyo Uehara — 上原多一陽 Portfolio";
+const siteDescription = "宮崎から台湾へ。人と世界をつなぐ挑戦を。上原多一陽（Taiyo Uehara）のポートフォリオ。";
+
 export const metadata: Metadata = {
-  title: "Taiyo Uehara — 上原多一陽 Portfolio",
-  description: "宮崎から台湾へ。人と世界をつなぐ挑戦を。上原多一陽（Taiyo Uehara）のポートフォリオ。",
+  metadataBase: new URL("https://taiyo-portfolio.vercel.app"),
+  title: siteTitle,
+  description: siteDescription,
+  // シェア用の画像は src/app/opengraph-image.png / twitter-image.png が自動で使われます
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Taiyo Uehara Portfolio",
+    title: siteTitle,
+    description: siteDescription,
+    locale: "ja_JP",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export const viewport: Viewport = {
