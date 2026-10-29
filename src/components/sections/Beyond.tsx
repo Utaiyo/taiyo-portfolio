@@ -1,4 +1,5 @@
-import { hobbies } from "@/content/profile";
+import Image from "next/image";
+import { hobbies, snapshots } from "@/content/profile";
 import { ChapterHeading } from "@/components/ui/ChapterHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import clsx from "@/components/ui/clsx";
@@ -17,7 +18,33 @@ export function Beyond() {
           </p>
         </Reveal>
 
-        <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+        {/* スナップ写真（ZINE風に、少し傾けて貼る） */}
+        <ul className="mt-14 grid gap-8 sm:grid-cols-3 sm:gap-6 lg:gap-10">
+          {snapshots.map((p, i) => (
+            <li key={p.src} className={clsx(i === 1 && "sm:mt-12")}>
+              <Reveal delay={0.08 * i}>
+                <figure
+                  className={clsx(
+                    "relative border-[3px] border-ink bg-white p-3 pb-4 shadow-[6px_6px_0_#141414] transition-transform duration-300 hover:rotate-0",
+                    ["-rotate-2", "rotate-1", "rotate-[2.5deg]"][i % 3],
+                  )}
+                >
+                  {/* マスキングテープ */}
+                  <span aria-hidden className="absolute -top-3 left-1/2 h-6 w-24 -translate-x-1/2 -rotate-3 bg-sun/85 shadow-[0_1px_0_rgba(0,0,0,.15)]" />
+                  <div className="relative aspect-[4/5] overflow-hidden border-2 border-ink">
+                    <Image src={p.src} alt={p.alt} fill sizes="(min-width:640px) 33vw, 90vw" className="object-cover" />
+                  </div>
+                  <figcaption className="mt-3 flex items-baseline justify-between gap-3">
+                    <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-vermilion">{p.label}</span>
+                    <span className="text-[14px] font-bold">{p.caption}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+
+        <ul className="mt-16 grid grid-cols-2 gap-x-4 gap-y-8 sm:mt-20 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
           {hobbies.map((h, i) => (
             <li key={h.en} className={clsx(i === 0 && "sm:col-span-2 lg:col-span-1")}>
               <Reveal delay={0.05 * (i % 4)} className="h-full">

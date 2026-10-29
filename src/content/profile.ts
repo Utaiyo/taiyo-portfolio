@@ -29,6 +29,24 @@ export const images = {
     height: 1349,
     alt: "",
   },
+  smile: {
+    src: "/images/taiyo-smile.webp",
+    width: 843,
+    height: 1124,
+    alt: "笑顔の上原多一陽",
+  },
+  present: {
+    src: "/images/taiyo-present.webp",
+    width: 880,
+    height: 1124,
+    alt: "ノートPCを抱えてマイクで話す上原多一陽",
+  },
+  focus: {
+    src: "/images/taiyo-focus.webp",
+    width: 1062,
+    height: 1124,
+    alt: "PCに向かって作業する上原多一陽",
+  },
 } satisfies Record<string, ImageAsset>;
 
 export const profile = {
@@ -129,6 +147,8 @@ export type Skill = {
   ja: string;
   items: string[];
   quote: string;
+  /** カードに重ねる切り抜き写真（任意） */
+  image?: ImageAsset;
 };
 
 export const skills: Skill[] = [
@@ -145,6 +165,7 @@ export const skills: Skill[] = [
     ja: "アイデアを、仕組みにする",
     items: ["ビジネス企画", "Python", "C / C++", "Java", "HTML / CSS", "データ分析・可視化"],
     quote: "企画して終わりじゃなく、ちゃんと形にしたい。",
+    image: images.focus,
   },
   {
     left: "Japan",
@@ -159,6 +180,7 @@ export const skills: Skill[] = [
     ja: "思いついたら、動く",
     items: ["学生向け企画", "プレゼンテーション"],
     quote: "まずやってみる、がわりと自分らしい。",
+    image: images.present,
   },
 ];
 
@@ -208,6 +230,36 @@ export const projectsIntro = {
   bubbles: ["企画して、動いて、\n形にするところまでやりたい。", "交流のきっかけを\nデザインする。"],
   notes: ["ROLE — 企画・運営", "FIELD — コミュニティ", "STYLE — まず動く"],
 };
+
+/** BEYOND WORK のスナップ写真 */
+export type Snapshot = ImageAsset & { label: string; caption: string; bubble?: string };
+
+export const snapshots: Snapshot[] = [
+  {
+    src: "/images/snap-travel.webp",
+    width: 872,
+    height: 1200,
+    alt: "旅先の建物で天井を見上げる上原多一陽",
+    label: "TRAVEL",
+    caption: "旅先で、見上げた天井。",
+  },
+  {
+    src: "/images/snap-deck.webp",
+    width: 900,
+    height: 1025,
+    alt: "木のデッキのベンチに座る上原多一陽",
+    label: "OFF",
+    caption: "空の下で、ひと休み。",
+  },
+  {
+    src: "/images/snap-play.webp",
+    width: 900,
+    height: 1142,
+    alt: "目隠しをしてポーズをとる上原多一陽",
+    label: "PLAY",
+    caption: "遊び心も、わりと大事。",
+  },
+];
 
 export type Hobby = { en: string; ja: string; note: string; glyph: string };
 
