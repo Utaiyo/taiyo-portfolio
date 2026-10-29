@@ -25,7 +25,7 @@ export function Beyond() {
               <Reveal delay={0.08 * i}>
                 <figure
                   className={clsx(
-                    "relative border-[3px] border-ink bg-white p-3 pb-4 shadow-[6px_6px_0_#141414] transition-transform duration-300 hover:rotate-0",
+                    "relative border-[3px] border-ink bg-white p-3 shadow-[6px_6px_0_#141414] transition-transform duration-300 hover:rotate-0",
                     ["-rotate-2", "rotate-1", "rotate-[2.5deg]"][i % 3],
                   )}
                 >
@@ -34,10 +34,6 @@ export function Beyond() {
                   <div className="relative aspect-[4/5] overflow-hidden border-2 border-ink">
                     <Image src={p.src} alt={p.alt} fill sizes="(min-width:640px) 33vw, 90vw" className="object-cover" />
                   </div>
-                  <figcaption className="mt-3 flex items-baseline justify-between gap-3">
-                    <span className="font-mono text-[11px] font-bold tracking-[0.2em] text-vermilion">{p.label}</span>
-                    <span className="text-[14px] font-bold">{p.caption}</span>
-                  </figcaption>
                 </figure>
               </Reveal>
             </li>

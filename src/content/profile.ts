@@ -35,18 +35,6 @@ export const images = {
     height: 1124,
     alt: "笑顔の上原多一陽",
   },
-  present: {
-    src: "/images/taiyo-present.webp",
-    width: 880,
-    height: 1124,
-    alt: "ノートPCを抱えてマイクで話す上原多一陽",
-  },
-  focus: {
-    src: "/images/taiyo-focus.webp",
-    width: 1062,
-    height: 1124,
-    alt: "PCに向かって作業する上原多一陽",
-  },
 } satisfies Record<string, ImageAsset>;
 
 export const profile = {
@@ -165,7 +153,6 @@ export const skills: Skill[] = [
     ja: "アイデアを、仕組みにする",
     items: ["ビジネス企画", "Python", "C / C++", "Java", "HTML / CSS", "データ分析・可視化"],
     quote: "企画して終わりじゃなく、ちゃんと形にしたい。",
-    image: images.focus,
   },
   {
     left: "Japan",
@@ -180,7 +167,6 @@ export const skills: Skill[] = [
     ja: "思いついたら、動く",
     items: ["学生向け企画", "プレゼンテーション"],
     quote: "まずやってみる、がわりと自分らしい。",
-    image: images.present,
   },
 ];
 
